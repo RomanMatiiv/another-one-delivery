@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+# intellij ide
+.idea/
+*.iml
+
+# auto generated docs
+doc.html
