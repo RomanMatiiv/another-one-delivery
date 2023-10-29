@@ -1,4 +1,4 @@
-FROM python:3.12-alpine3.18
+FROM python:3.12-slim
 LABEL authors="matiiv"
 
     # python:
@@ -20,14 +20,15 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
+RUN apt-get -y update \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN pip install -U pip \
     && pip install poetry==$POETRY_VERSION
 
-COPY ./poetry.toml ./poetry.lock /app/
+COPY ./pyproject.toml ./poetry.lock /app/
 
 RUN poetry install --no-dev --no-ansi \
     && rm -rf "$POETRY_CACHE_DIR"
 
 COPY . /app/
-
-EXPOSE 8000
