@@ -2,7 +2,13 @@ version: "3"
 
 services:
     user-manager:
-        build:
+        build: # todo заменить на image который соберется в ci
             context: user-manager
             dockerfile: ./deploy/Dockerfile
         command: python main.py
+
+    catalog:
+        build: # todo заменить на image который соберется в ci
+            context: catalog
+            dockerfile: ./deploy/Dockerfile
+        command: ./catalog
