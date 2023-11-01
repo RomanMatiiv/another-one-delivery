@@ -1,0 +1,14 @@
+name: catalog service CI
+run-name: catalog ${{ github.actor }}
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: go build
+        run: |
+          docker build . -f dockerfile=deploy/Dockerfile -t catalog:latest -t catalog:v0.1
+  deploy:
+    runs-on: ubuntu-22.04
