@@ -20,6 +20,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./catalog
-          file: Dockerfile
+          file: ./Dockerfile
           push: false
           tags: catalog:latest
