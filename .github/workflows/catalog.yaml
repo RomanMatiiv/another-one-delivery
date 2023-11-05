@@ -5,9 +5,14 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
+      -
+        name: Checkout
         uses: actions/checkout@v4
-      - name: Build the Docker image
-        run: docker build . -f Dockerfile -t catalog
-#  deploy:
-#    runs-on: ubuntu-22.04
+      -
+        name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: clockbox:latest
