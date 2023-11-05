@@ -25,6 +25,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./catalog
-          file: catalog/deploy/Dockerfile
+          file: ./catalog/deploy/Dockerfile
           push: true
-          tags: catalog:latest,catalog:${{ github.ref_name }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/catalog:latest
