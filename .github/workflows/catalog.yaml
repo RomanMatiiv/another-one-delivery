@@ -10,5 +10,5 @@ jobs:
       - name: go build
         run: |
           docker build . -f dockerfile=deploy/Dockerfile -t catalog:latest -t catalog:v0.1
-  deploy:
-    runs-on: ubuntu-22.04
+#  deploy:
+#    runs-on: ubuntu-22.04
