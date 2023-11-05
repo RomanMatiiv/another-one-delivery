@@ -8,7 +8,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: go build
-        run: |
-          docker build . -f dockerfile=deploy/Dockerfile -t catalog:latest -t catalog:v0.1
+        run: docker build . -f deploy/Dockerfile -t catalog:latest -t catalog:v0.1
 #  deploy:
 #    runs-on: ubuntu-22.04
