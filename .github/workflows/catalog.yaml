@@ -1,6 +1,10 @@
 name: catalog service CI
 run-name: catalog ${{ github.actor }}
 on: [push]
+defaults:
+  run:
+    shell: bash
+    working-directory: .
 jobs:
   build:
     runs-on: ubuntu-22.04
