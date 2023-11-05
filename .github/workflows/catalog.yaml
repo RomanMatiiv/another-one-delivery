@@ -9,6 +9,12 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       -
+        name: Extract tag
+        uses: christophebedard/tag-version-commit@v1
+        id: extract-tag
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       -
@@ -27,4 +33,4 @@ jobs:
           context: ./catalog
           file: ./catalog/deploy/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/catalog:${{ github.action_ref }}, ${{ secrets.DOCKERHUB_USERNAME }}/catalog:latest 
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/catalog:${{ steps.extract-tag.outputs.tag }}, ${{ secrets.DOCKERHUB_USERNAME }}/catalog:latest
