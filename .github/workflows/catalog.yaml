@@ -15,4 +15,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-          tags: clockbox:latest
+          tags: catalog:latest
