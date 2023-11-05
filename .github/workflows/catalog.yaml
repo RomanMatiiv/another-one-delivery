@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
          name: test
-         run: echo ${{ github.repository }}
+         run: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}
       -
         name: Build and push
         uses: docker/build-push-action@v5
