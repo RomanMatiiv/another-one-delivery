@@ -27,4 +27,4 @@ jobs:
           context: ./catalog
           file: ./catalog/deploy/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{github.action_repository}}/catalog:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.action_repository }}/catalog:latest
