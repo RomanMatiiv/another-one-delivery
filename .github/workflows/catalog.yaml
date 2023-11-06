@@ -1,10 +1,13 @@
 name: catalog service CI
 run-name: ${{ github.ref_name }} - ${{ github.sha }}
 
-on: [push]
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  BuildAndPush:
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:

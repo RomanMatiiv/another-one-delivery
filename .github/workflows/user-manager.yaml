@@ -1,5 +1,5 @@
 name: user-manager service CI
-run-name: user-manager ${{ github.actor }}
+run-name: ${{ github.ref_name }} - ${{ github.sha }}
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  build:
+  BuildAndPush:
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:
