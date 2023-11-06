@@ -6,6 +6,10 @@ on:
     branches:
       - main
 
+env:
+  SERVICE_NAME: user-manager
+  TAG: 0.0.2
+  
 jobs:
   BuildAndPush:
     runs-on: ubuntu-22.04
@@ -30,8 +34,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./user-manager
+          context: ./${{ env.SERVICE_NAME }}
           platforms: linux/amd64,linux/arm64
-          file: ./user-manager/deploy/Dockerfile
+          file: ./${{ env.SERVICE_NAME }}/deploy/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/user-manager:0.0.1, ${{ secrets.DOCKERHUB_USERNAME }}/user-manager:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:${{ env.TAG }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:latest
