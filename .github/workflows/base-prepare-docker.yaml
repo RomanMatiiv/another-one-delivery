@@ -1,7 +1,12 @@
 name: base prepare docker
 
 on:
-  workflow_call
+  workflow_call:
+    secrets:
+      DOCKERHUB_USERNAME:
+        required: true
+      DOCKERHUB_TOKEN:
+        required: true
 
 jobs:
   prepare-docker:
