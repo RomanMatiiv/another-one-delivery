@@ -36,4 +36,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           file: ./$SERVICE_NAME/deploy/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/$SERVICE_NAME:$TAG, ${{ secrets.DOCKERHUB_USERNAME }}/$SERVICE_NAME:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:${{ env.TAG }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:latest
