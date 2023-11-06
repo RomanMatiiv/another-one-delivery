@@ -2,13 +2,15 @@ version: "3"
 
 services:
     user-manager:
-        build: # todo заменить на image который соберется в ci
+#        image: # путь до docker.registry куда чеерз ci положу
+        build:
             context: user-manager
             dockerfile: ./deploy/Dockerfile
         command: python main.py
 
     catalog:
-        build: # todo заменить на image который соберется в ci
-            context: catalog
-            dockerfile: ./deploy/Dockerfile
+        image: matiiv/catalog:latest
+#        build:
+#            context: catalog
+#            dockerfile: ./deploy/Dockerfile
         command: ./catalog
