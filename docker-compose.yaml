@@ -10,7 +10,4 @@ services:
 
     catalog:
         image: matiiv/catalog:latest
-#        build:
-#            context: catalog
-#            dockerfile: ./deploy/Dockerfile
         command: ./catalog
