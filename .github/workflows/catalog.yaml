@@ -1,15 +1,12 @@
 name: catalog service CI
 run-name: ${{ github.ref_name }} - ${{ github.sha }}
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [push]
 
 env:
   SERVICE_NAME: catalog
-  TAG: 0.0.1
-  
+  TAG: 0.0.2
+
 
 jobs:
   BuildAndPush:
@@ -35,8 +32,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./catalog
+          context: ./$SERVICE_NAME
           platforms: linux/amd64,linux/arm64
-          file: ./catalog/deploy/Dockerfile
+          file: ./$SERVICE_NAME/deploy/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/catalog:0.0.1, ${{ secrets.DOCKERHUB_USERNAME }}/catalog:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/$SERVICE_NAME:$TAG, ${{ secrets.DOCKERHUB_USERNAME }}/$SERVICE_NAME:latest
