@@ -32,8 +32,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./$SERVICE_NAME
+          context: ./${{ env.SERVICE_NAME }}
           platforms: linux/amd64,linux/arm64
-          file: ./$SERVICE_NAME/deploy/Dockerfile
+          file: ./${{ env.SERVICE_NAME }}/deploy/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:${{ env.TAG }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE_NAME }}:latest
