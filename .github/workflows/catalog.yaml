@@ -1,19 +1,15 @@
 name: catalog service CI
 run-name: catalog ${{ github.actor }}
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [push]
 
 jobs:
+  prepare-docker:
+    uses: RomanMatiiv/another-one-delivery/.github/workflows/base-prepare-docker.yaml@main
   build:
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:
-      -
-        name: prepare-docker
-        uses: RomanMatiiv/another-one-delivery/.github/workflows/base-prepare-docker.yaml@main
       -
         name: Build and push
         uses: docker/build-push-action@v5
