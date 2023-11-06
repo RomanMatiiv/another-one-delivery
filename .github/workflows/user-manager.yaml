@@ -1,7 +1,10 @@
 name: user-manager service CI
 run-name: user-manager ${{ github.actor }}
 
-on: [push]
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
