@@ -2,10 +2,7 @@ version: "3"
 
 services:
     user-manager:
-#        image: # путь до docker.registry куда чеерз ci положу
-        build:
-            context: user-manager
-            dockerfile: ./deploy/Dockerfile
+        image: matiiv/user-manager:latest
         command: python main.py
 
     catalog:
