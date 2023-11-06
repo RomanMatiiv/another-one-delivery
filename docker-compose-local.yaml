@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+    user-manager:
+        build:
+            context: user-manager
+            dockerfile: ./deploy/Dockerfile
+        command: python main.py
+
+    catalog:
+        build:
+            context: catalog
+            dockerfile: ./deploy/Dockerfile
+        command: ./catalog
