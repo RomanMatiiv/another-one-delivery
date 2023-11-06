@@ -6,6 +6,11 @@ on:
     branches:
       - main
 
+env:
+  SERVICE_NAME: catalog
+  TAG: 0.0.1
+  
+
 jobs:
   BuildAndPush:
     runs-on: ubuntu-22.04
