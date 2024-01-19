@@ -7,7 +7,7 @@ manager = Typer()
 @manager.command()
 def run_api():
     uvicorn.run(
-        app="app.api.main:create_app",
+        app="app.main:app",
         host="0.0.0.0",
         port=8000,
         loop="uvloop",
