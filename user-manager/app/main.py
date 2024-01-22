@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 
-from .api.routers import tecnical, users
+from .api.v1 import router as router_v1
+from .api.technical import tecnical
 
 # todo прописать аннотации для свагера
 app = FastAPI(
 )
 
 app.include_router(tecnical.router)
-app.include_router(users.router)
+app.include_router(router_v1.router)
 
 
 # todo попробовать сделать структура проекта чуть по лучше v1 и тд (см geo-suggester)
