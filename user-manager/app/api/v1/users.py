@@ -8,4 +8,4 @@ router = APIRouter(
 
 @router.get("/{user_id}")
 async def get_by_id(user_id: int):
-    raise NotImplementedError
+    return user_id
