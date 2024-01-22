@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from .api.v1 import router as router_v1
 from .api import tecnical
+from .api.v1 import router as router_v1
 
 # todo прописать аннотации для свагера
 app = FastAPI()
