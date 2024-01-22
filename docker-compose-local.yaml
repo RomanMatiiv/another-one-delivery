@@ -5,7 +5,7 @@ services:
         build:
             context: user-manager
             dockerfile: ./deploy/Dockerfile
-        command: python main.py
+        command: uvicorn app.main:app
 
     catalog:
         build:
