@@ -12,6 +12,8 @@ uvicorn = {extras = ["standard"], version = "^0.26.0"}
 typer = "^0.9.0"
 ruff = "^0.1.14"
 mypy = "^1.8.0"
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
 
 
 [build-system]
@@ -20,13 +22,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
 line-length = 115
-target-version = "py310"
-select = [
-    "F", "E", "W", "C90", "UP",
-    "N", "YTT", "S", "BLE", "FBT",
-    "B", "A", "C4", "T20", "Q",
-    "RET", "SIM", "ARG", "ERA",
-    "PGH", "RUF", "I"
-]
+target-version = "py312"
 show-source = true
 ignore = ["RUF003"]
